@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/phoneCall"
+        android:title="Phone Call"/>
+    <item
+        android:id="@+id/txtMessage"
+        android:title="Text Message"/>
+    <item
+        android:id="@+id/dataView"
+        android:title="Data Visualization"/>
+    <item
+        android:id="@+id/profile"
+        android:title="Profile"/>
+    <item
+        android:id="@+id/logout"
+        android:title="Log Out"/>
+</menu>
