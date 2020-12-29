@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:id="@+id/drawer"
     android:background="@color/background"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:fitsSystemWindows="true">
    <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -15,22 +16,27 @@
         android:id="@+id/navV"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
+       android:background="@color/paste"
         />
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/background"
-        tools:context=".MainActivity">
+        android:orientation="vertical"
+        >
+        <include
+            layout="@layout/main_toolbar"
+            />
 
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button"
             android:layout_width="200dp"
             android:layout_height="64dp"
-            android:layout_marginTop="340dp"
+            android:layout_marginTop="500px"
             android:background="@color/emergencyButton"
-            android:fontFamily="sans-serif"
+            android:fontFamily="@font/contrail_one"
             android:padding="10px"
+            android:layout_marginLeft="90dp"
             android:shadowColor="@color/emergencyButton"
             android:text="Emergency Button"
             android:textColor="@color/white"
@@ -39,6 +45,6 @@
             app:layout_constraintHorizontal_bias="0.541"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
+    </LinearLayout>
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -2,17 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/phoneCall"
-        android:title="Phone Call"/>
+        android:title="Phone Call"
+        android:icon="@drawable/ic_phone_call"
+        android:clickable="true"/>
     <item
         android:id="@+id/txtMessage"
-        android:title="Text Message"/>
+        android:title="Text Message"
+        android:icon="@drawable/ic_messages_silhouette"/>
     <item
         android:id="@+id/dataView"
-        android:title="Data Visualization"/>
+        android:title="Data Visualization"
+        android:icon="@drawable/ic_information"/>
     <item
         android:id="@+id/profile"
-        android:title="Profile"/>
+        android:title="Profile"
+        android:icon="@drawable/ic_profile_user"/>
     <item
         android:id="@+id/logout"
-        android:title="Log Out"/>
+        android:title="Log Out"
+        android:icon="@drawable/ic_logout"/>
 </menu>
