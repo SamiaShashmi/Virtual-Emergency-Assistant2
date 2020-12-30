@@ -19,11 +19,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:fontFamily="@font/contrail_one"
         android:text="Phone Call"
         android:textColor="@color/paste"
         android:textSize="20dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:fontFamily="@font/contrail_one"/>
 
 
 </LinearLayout>

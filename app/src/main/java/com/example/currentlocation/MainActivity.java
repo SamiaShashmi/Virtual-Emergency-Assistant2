@@ -19,6 +19,7 @@ import android.telephony.SmsManager;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     NavigationView navigationView;
     FusedLocationProviderClient fusedLocationProviderClient;
     Toolbar toolbar;
-
+    TextView phone_Call;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,10 +57,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawLayout.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
-        navigationView.setCheckedItem(R.id.navV);
+        //navigationView.setCheckedItem(R.id.navV);
         /*getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         final NavigationView navView = (NavigationView) findViewById(R.id.navV);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);*/
+
 
 
         Button emergencyButton = (Button) findViewById(R.id.button);
@@ -124,12 +126,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
     //@Override
-    public boolean onOptionItemSelected(MenuItem item) {
+   /* public boolean onOptionItemSelected(MenuItem item) {
         if (toggle.onOptionsItemSelected(item)) {
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
+    }*/
     @Override
     public void onBackPressed(){
         if(drawLayout.isDrawerOpen(GravityCompat.START)){
@@ -150,16 +152,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
                 break;
         }
-        drawLayout.closeDrawer(GravityCompat.START);
+        //drawLayout.closeDrawer(GravityCompat.START);
         return true;
     }
 
-    public void phone_Call(View view) {
-        /*String phoneNumber = "8801881485160";
+    public  void menuClick(View view)
+    {
+        openDrawer(drawLayout);
+    }
+
+    private static void openDrawer(DrawerLayout drawLayout) {
+        drawLayout.openDrawer(GravityCompat.START);
+    }
+
+    public void phoneCall(View view) {
+        String phoneNumber = "8801881485160";
         Intent intent = new Intent(Intent.ACTION_CALL);
         intent.setData(Uri.parse("tel:" + phoneNumber));
-        startActivity(intent);*/
-        Toast.makeText(MainActivity.this,
-                "Alert Sent", Toast.LENGTH_SHORT).show();
+        startActivity(intent);
     }
 }

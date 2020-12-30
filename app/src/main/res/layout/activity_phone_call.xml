@@ -24,28 +24,28 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="60dp"
-        android:fontFamily="@font/contrail_one"
         android:text="Law Enforcement"
         android:id="@+id/lawEnforcement"
-        android:onClick="phone_Call"
-        android:clickable="true"
-        android:textColor="@color/paste" />
+        android:onClick="phoneCall"
+        android:textColor="@color/paste"
+        android:fontFamily="@font/contrail_one"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="90dp"
-        android:fontFamily="@font/contrail_one"
         android:text="Emergency Contact 1"
-        android:textColor="@color/paste" />
+        android:textColor="@color/paste"
+        android:onClick="phoneCall"
+        android:fontFamily="@font/contrail_one"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="120dp"
-        android:fontFamily="@font/contrail_one"
         android:text="Emergency Contact 2"
-        android:textColor="@color/paste" />
+        android:textColor="@color/paste"
+        android:fontFamily="@font/contrail_one"/>
 
 
 

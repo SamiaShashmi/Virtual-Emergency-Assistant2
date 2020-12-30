@@ -7,7 +7,9 @@
     android:id="@+id/drawer"
     android:background="@color/background"
     tools:context=".MainActivity"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start"
+    >
    <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -15,7 +17,6 @@
         app:menu="@menu/nav_drawer_menu"
         android:id="@+id/navV"
         android:layout_gravity="start"
-        android:fitsSystemWindows="true"
        android:background="@color/paste"
         />
     <LinearLayout
