@@ -19,103 +19,85 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity  {
 
     private EditText signInEmailEditText, signInPasswordEditText;
     private TextView signUpTextView;
     private Button signInButton;
     private ProgressBar progressBar;
     private FirebaseAuth mAuth;
+    private EditText passwordEditText;
+    private EditText userEditText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         mAuth = FirebaseAuth.getInstance();
-        signInEmailEditText = findViewById(R.id.signInEmailEditTextID);
+        signInEmailEditText = findViewById(R.id.signInUNameEditTextID);
         signInPasswordEditText=findViewById(R.id.signInPasswordEditTextID);
         signUpTextView=findViewById(R.id.SignUpTextViewID);
         signInButton=findViewById(R.id.SignInButtonId);
 
         progressBar=findViewById(R.id.progressBarid);
-
-        signUpTextView.setOnClickListener(this);
-        signInButton.setOnClickListener(this);
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId())
-        {
-            case R.id.SignInButtonId:
-                userLogin();
-                break;
 
-            case R.id.SignUpTextViewID:
-                Intent intent = new Intent(getApplicationContext(), signUpActivity.class);
-                startActivity(intent);
-                break;
+    public void userLogin(View view) {
 
-
-        }
-
-    }
-
-    private void userLogin() {
-
-        String email= signInEmailEditText.getText().toString().trim();
-        String password= signInPasswordEditText.getText().toString().trim();
-
-        //checking validity of email
-        if(email.isEmpty())
-        {
-            signInEmailEditText.setError("Enter an email Address");
-            signInEmailEditText.requestFocus();
-            return;
-        }
-        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches())
-        {
-            signInEmailEditText.setError("Enter an email Address");
-            signInEmailEditText.requestFocus();
-            return;
-
-        }
-        //checking validity of password
-        if(password.isEmpty())
-        {
-            signInPasswordEditText.setError("Enter an email Address");
-            signInPasswordEditText.requestFocus();
-            return;
-        }
-        if(password.length() < 8)
-        {
-            signInPasswordEditText.setError("Password must contain atleast 8 characters");
-            signInPasswordEditText.requestFocus();
-            return;
-        }
-        /* progressBar.setVisibility(View.VISIBLE); */
-        mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        passwordEditText = findViewById(R.id.signInPasswordEditTextID);
+        userEditText = findViewById(R.id.signInUNameEditTextID);
+        String userName = userEditText.getText().toString();
+        String password = passwordEditText.getText().toString();
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("User");
+        Query checkUser = reference.orderByChild("username").equalTo(userName);
+        checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful())
-                {
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    userEditText.setError(null);
+                    String passFromDB = snapshot.child(userName).child("password2").getValue(String.class);
+                    if(passFromDB.equals(password)){
+                        passwordEditText.setError(null);
+                        String nameFromDB = snapshot.child(userName).child("fullname").getValue(String.class);
+                        String dobFromDB = snapshot.child(userName).child("dateofbirth").getValue(String.class);
+                        String emailFromDB = snapshot.child(userName).child("email2").getValue(String.class);
+                        String mobFromDB = snapshot.child(userName).child("mobilenumber").getValue(String.class);
+                        String typeFromDB = snapshot.child(userName).child("usertype").getValue(String.class);
 
-                    Intent intent = new Intent(getApplicationContext(),emergencyButton.class);
-                    intent.putExtra("keyemail",email);
-                    intent.putExtra("keypassword",password);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(intent);
+                        Intent intent = new Intent(getApplicationContext(),emergencyButton.class);
 
+                        intent.putExtra("fullname",nameFromDB);
+                        intent.putExtra("dateofbirth",dobFromDB);
+                        intent.putExtra("email2",emailFromDB);
+                        intent.putExtra("mobilenumber",mobFromDB);
+                        intent.putExtra("usertype",typeFromDB);
+
+                        startActivity(intent);
+                    }
+                    else {
+                        passwordEditText.setError("Wrong Password");
+                        passwordEditText.requestFocus();
+                    }
                 }
-                else
-                {
-                    Toast.makeText(getApplicationContext(),"Login Unsuccessful",Toast.LENGTH_LONG).show();
+                else {
+                    userEditText.setError("No Such User");
+                    userEditText.requestFocus();
                 }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
-
 
     }
     public void phoneCall(View view) {
@@ -134,5 +116,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void openInputMessage(View view) {
         startActivity(new Intent(MainActivity.this, input_message.class));
+    }
+
+    public void openSignInActivity(View view) {
+        startActivity(new Intent(MainActivity.this, signUpActivity.class));
+        Toast.makeText(MainActivity.this,
+                "Alert Sent", Toast.LENGTH_SHORT).show();
+    }
+
+    public void signUp(View view) {
     }
 }

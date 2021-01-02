@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/fullNameID"
-        android:inputType="textEmailAddress"
+        android:inputType="text"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
         android:hint="@string/full_name"
         android:textColorHint="@color/teal_700"
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:autofillHints=""
         android:fontFamily="@font/contrail_one"
-        android:inputType="textEmailAddress"
+        android:inputType="date"
         android:textColor="@color/paste"
         android:textColorHint="@color/teal_700"/>
     <EditText
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:autofillHints=""
         android:fontFamily="@font/contrail_one"
-        android:inputType="textEmailAddress"
+        android:inputType="number"
         android:textColor="@color/paste"
         android:textColorHint="@color/teal_700"/>
 
@@ -52,7 +52,9 @@
         >
 
         <TextView
-            android:text="Gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/gender"
             android:layout_marginLeft="12dp"
             android:textColor="@color/paste"
             android:textSize="20sp"
@@ -144,7 +146,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/userNameID"
-        android:inputType="textEmailAddress"
+        android:inputType="text"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
         android:hint="@string/user_name"
         android:textColorHint="@color/teal_700"
@@ -170,7 +172,7 @@
         android:layout_height="wrap_content"
         android:autofillHints=""
         android:fontFamily="@font/contrail_one"
-        android:inputType="textEmailAddress"
+        android:inputType= "textPassword"
         android:textColor="@color/paste"
         android:textColorHint="@color/teal_700" />
 
@@ -183,7 +185,8 @@
         android:text="@string/sign_up"
         android:textColor="@color/black"
         android:fontFamily="@font/contrail_one"
-        app:backgroundTint="@color/paste" />
+        app:backgroundTint="@color/paste"
+        android:onClick="signUp"/>
 
     <Button
         android:id="@+id/SignInTextViewID2"
@@ -194,7 +197,8 @@
         android:text="@string/sign_in2"
         android:textColor="@color/black"
         android:fontFamily="@font/contrail_one"
-        app:backgroundTint="@color/paste" />
+        app:backgroundTint="@color/paste"
+        android:onClick="openSignInActivity"/>
 
 
 
