@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="#202020"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fullNameID"
+        android:inputType="textEmailAddress"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:hint="@string/full_name"
+        android:textColorHint="@color/teal_700"
+        android:textColor="@color/paste"
+        android:autofillHints=""
+        android:fontFamily="@font/contrail_one"/>
+    <EditText
+        android:id="@+id/dateOfBirthID"
+        android:hint="@string/date_of_birth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:fontFamily="@font/contrail_one"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/paste"
+        android:textColorHint="@color/teal_700"/>
+    <EditText
+        android:id="@+id/mobileID"
+        android:hint="@string/mobile_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:fontFamily="@font/contrail_one"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/paste"
+        android:textColorHint="@color/teal_700"/>
+
+
+    <RadioGroup
+        android:id="@+id/genderradioid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        >
+
+        <TextView
+            android:text="Gender"
+            android:layout_marginLeft="12dp"
+            android:textColor="@color/paste"
+            android:textSize="20sp"
+            android:fontFamily="@font/contrail_one"
+            />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:text="Male"
+            android:textSize="20sp"
+            android:fontFamily="@font/contrail_one"
+            android:textColor="@color/paste"
+            android:id="@+id/maleradioid"
+            android:buttonTint="@color/paste"
+            />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Female"
+            android:textSize="20sp"
+            android:textColor="@color/paste"
+            android:id="@+id/femaleradioid"
+            android:buttonTint="@color/paste"
+            android:fontFamily="@font/contrail_one"
+            />
+
+    </RadioGroup>
+    <RadioGroup
+
+        android:id="@+id/usertyperadioid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="User Type"
+            android:layout_marginLeft="12dp"
+            android:textColor="@color/paste"
+            android:textSize="20sp"
+            android:fontFamily="@font/contrail_one"
+            />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:text="User"
+            android:textSize="20sp"
+            android:textColor="@color/paste"
+            android:id="@+id/userradioid"
+            android:fontFamily="@font/contrail_one"
+            android:buttonTint="@color/paste"
+            />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Volunteer"
+            android:textSize="20sp"
+            android:textColor="@color/paste"
+            android:id="@+id/volunteerradioid"
+            android:fontFamily="@font/contrail_one"
+            android:buttonTint="@color/paste"
+            />
+
+    </RadioGroup>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        />
+
+
+    <EditText
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/userNameID"
+        android:inputType="textEmailAddress"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:hint="@string/user_name"
+        android:textColorHint="@color/teal_700"
+        android:textColor="@color/paste"
+        android:autofillHints=""
+        android:fontFamily="@font/contrail_one"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/signUpEmailEditTextID"
+        android:inputType="textEmailAddress"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:hint="@string/email"
+        android:textColorHint="@color/teal_700"
+        android:textColor="@color/paste"
+        android:autofillHints=""
+        android:fontFamily="@font/contrail_one"/>
+    <EditText
+        android:id="@+id/signUpPasswordEditTextID"
+        android:hint="@string/confirm_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:fontFamily="@font/contrail_one"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/paste"
+        android:textColorHint="@color/teal_700" />
+
+    <Button
+        android:id="@+id/SignUpButtonIID"
+        style="@style/Base.Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/sign_up"
+        android:textColor="@color/black"
+        android:fontFamily="@font/contrail_one"
+        app:backgroundTint="@color/paste" />
+
+    <Button
+        android:id="@+id/SignInTextViewID2"
+        style="@style/Base.Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/sign_in2"
+        android:textColor="@color/black"
+        android:fontFamily="@font/contrail_one"
+        app:backgroundTint="@color/paste" />
+
+
+
+    <ProgressBar
+
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:id="@+id/progressBarid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+
+
+
+</LinearLayout>
