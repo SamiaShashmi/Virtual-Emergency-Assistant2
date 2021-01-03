@@ -30,7 +30,8 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
-import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.IOException;
 import java.util.List;
@@ -51,7 +52,7 @@ public class emergencyButton extends AppCompatActivity implements NavigationView
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_emergency_button);
         drawLayout = (DrawerLayout) findViewById(R.id.drawer);
         navigationView = findViewById(R.id.navV);
         //toolbar = findViewById(R.id.hamburger);
@@ -183,11 +184,11 @@ public class emergencyButton extends AppCompatActivity implements NavigationView
     public void onPointerCaptureChanged(boolean hasCapture) {
 
     }
-    public void logout(View view){
-        FirebaseAuth.getInstance().signOut();
+   /* public void logout(View view){
+        //FirebaseAuth.getInstance().signOut();
         startActivity(new Intent(getApplicationContext(),MainActivity.class));
         finish();
-    }
+    }*/
    /* @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
         int action, keycode;

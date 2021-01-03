@@ -17,8 +17,6 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -32,7 +30,6 @@ public class MainActivity extends AppCompatActivity  {
     private TextView signUpTextView;
     private Button signInButton;
     private ProgressBar progressBar;
-    private FirebaseAuth mAuth;
     private EditText passwordEditText;
     private EditText userEditText;
     @Override
@@ -40,7 +37,7 @@ public class MainActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mAuth = FirebaseAuth.getInstance();
+        //mAuth = FirebaseAuth.getInstance();
         signInEmailEditText = findViewById(R.id.signInUNameEditTextID);
         signInPasswordEditText=findViewById(R.id.signInPasswordEditTextID);
         signUpTextView=findViewById(R.id.SignUpTextViewID);
@@ -52,7 +49,7 @@ public class MainActivity extends AppCompatActivity  {
 
     public void userLogin(View view) {
 
-        passwordEditText = findViewById(R.id.signInPasswordEditTextID);
+       /* passwordEditText = findViewById(R.id.signInPasswordEditTextID);
         userEditText = findViewById(R.id.signInUNameEditTextID);
         String userName = userEditText.getText().toString();
         String password = passwordEditText.getText().toString();
@@ -71,17 +68,17 @@ public class MainActivity extends AppCompatActivity  {
                         String emailFromDB = snapshot.child(userName).child("email2").getValue(String.class);
                         String mobFromDB = snapshot.child(userName).child("mobilenumber").getValue(String.class);
                         String typeFromDB = snapshot.child(userName).child("usertype").getValue(String.class);
-
+*/
                         Intent intent = new Intent(getApplicationContext(),emergencyButton.class);
 
-                        intent.putExtra("fullname",nameFromDB);
+                       /* intent.putExtra("fullname",nameFromDB);
                         intent.putExtra("dateofbirth",dobFromDB);
                         intent.putExtra("email2",emailFromDB);
                         intent.putExtra("mobilenumber",mobFromDB);
-                        intent.putExtra("usertype",typeFromDB);
+                        intent.putExtra("usertype",typeFromDB);*/
 
                         startActivity(intent);
-                    }
+                  /*  }
                     else {
                         passwordEditText.setError("Wrong Password");
                         passwordEditText.requestFocus();
@@ -97,7 +94,7 @@ public class MainActivity extends AppCompatActivity  {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });
+        });*/
 
     }
     public void phoneCall(View view) {
@@ -126,4 +123,5 @@ public class MainActivity extends AppCompatActivity  {
 
     public void signUp(View view) {
     }
+
 }

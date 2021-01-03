@@ -17,7 +17,7 @@ public class text_message extends AppCompatActivity {
     }
     public void backActivity(View view)
     {
-        startActivity(new Intent(text_message.this, MainActivity.class));
+        startActivity(new Intent(text_message.this, emergencyButton.class));
     }
     public void openInputMessage(View view)
     {
