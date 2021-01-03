@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CurrentLocation">
-        <activity android:name=".signUpActivity"></activity>
+        <activity android:name=".volunteer_menu"></activity>
+        <activity android:name=".signUpActivity" />
         <activity android:name=".input_message" />
         <activity android:name=".text_message" />
         <activity android:name=".emergencyButton" />

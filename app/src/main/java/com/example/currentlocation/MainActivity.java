@@ -68,17 +68,30 @@ public class MainActivity extends AppCompatActivity  {
                         String emailFromDB = snapshot.child(userName).child("email2").getValue(String.class);
                         String mobFromDB = snapshot.child(userName).child("mobilenumber").getValue(String.class);
                         String typeFromDB = snapshot.child(userName).child("usertype").getValue(String.class);
-*/
-                        Intent intent = new Intent(getApplicationContext(),emergencyButton.class);
 
-                       /* intent.putExtra("fullname",nameFromDB);
-                        intent.putExtra("dateofbirth",dobFromDB);
-                        intent.putExtra("email2",emailFromDB);
-                        intent.putExtra("mobilenumber",mobFromDB);
-                        intent.putExtra("usertype",typeFromDB);*/
+                           if(typeFromDB.equals("Volunteer"))
+                            {
+                                Intent intent = new Intent(getApplicationContext(),volunteer_menu.class);
+                                intent.putExtra("fullname",nameFromDB);
+                                intent.putExtra("dateofbirth",dobFromDB);
+                                intent.putExtra("email2",emailFromDB);
+                                intent.putExtra("mobilenumber",mobFromDB);
+                                intent.putExtra("usertype",typeFromDB);
 
-                        startActivity(intent);
-                  /*  }
+                                startActivity(intent);
+                            }
+                            else
+                            {
+                                Intent intent = new Intent(getApplicationContext(),emergencyButton.class);
+                                intent.putExtra("fullname",nameFromDB);
+                                intent.putExtra("dateofbirth",dobFromDB);
+                                intent.putExtra("email2",emailFromDB);
+                                intent.putExtra("mobilenumber",mobFromDB);
+                                intent.putExtra("usertype",typeFromDB);
+
+                                startActivity(intent);
+                            }
+                   }
                     else {
                         passwordEditText.setError("Wrong Password");
                         passwordEditText.requestFocus();

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/volunteer_drawer"
+    android:background="@color/background"
+    tools:context=".MainActivity"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start"
+    >
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/volunteer_menu"
+        android:id="@+id/volunteer_navV"
+        android:layout_gravity="start"
+        android:background="@color/paste"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <include
+            layout="@layout/volunteer_toolbar"
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/fullNamep"
+            android:background="@color/background"
+            android:layout_marginLeft="50dp"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/paste"
+                android:drawableLeft="@drawable/ic_user"
+                android:drawablePadding="10dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/phoneNop"
+            android:layout_marginLeft="50dp"
+            android:background="@color/background"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/paste"
+                android:drawableLeft="@drawable/ic_phone_call2"
+                android:drawablePadding="10dp"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/emailp"
+            android:background="@color/background"
+            android:layout_marginLeft="50dp"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/paste"
+                android:drawablePadding="10dp"
+                android:drawableLeft="@drawable/ic_email"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/dobp"
+            android:background="@color/paste"
+            android:layout_marginLeft="50dp"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/paste"
+                android:drawablePadding="10dp"
+                android:drawableLeft="@drawable/ic_calendar"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    </LinearLayout>
+</androidx.drawerlayout.widget.DrawerLayout>
